@@ -56,7 +56,7 @@ class Generator:
     def set_pathex(self) -> None:
         self.pathex = os.path.dirname(os.path.realpath(__file__))
         self.pathex = self.pathex.split('\\')
-        self.pathex = [x + r'\\' for x in self.pathex]
+        self.pathex = [x + '\\\\' for x in self.pathex]
         self.pathex = "".join(self.pathex)
 
     def spec(self) -> None:
