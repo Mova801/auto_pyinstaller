@@ -17,22 +17,23 @@ def __lib_info__() -> dict:
     }
 
 
-APP_LOADING = f"""
+LIB_LOADING = f"""
  ╔══════════════════════════════════════════════════════════╗
- ║   INITIALIZING {module_name}{vlib} LIBRARY...   ║
+ ║ INITIALIZING {module_name}#{vlib} LIBRARY... ║
  ╚══════════════════════════════════════════════════════════╝
  """
 
 
 @dataclass
-class Decoration:
+class MessageHandler:
 
     # inizializza la classe
     #   crea un dizionario in cui verranno salvati i messaggi da utilizzare nell'applicazione
     def __init__(self, **kwargs) -> None:
         self.show_info = kwargs.get("show_info", False)
+        self.messages_location = kwargs.get("_import", "messages")  
         self.dict_messages = {}
-        print(APP_LOADING)
+        print(LIB_LOADING)
 
     # inizializza un certo messaggio
     #   importa il messaggio
@@ -41,15 +42,18 @@ class Decoration:
     def init(self, *messages) -> None:
         for msg in messages:
             try:
-                exec(f"from messages import {msg} as MSG")
+                exec(f"from {self.messages_location} import {msg} as MSG")
                 exec("self.dict_messages[msg] = MSG")
                 exec("del MSG")
                 if self.show_info:
                     cprint(f"{msg} imported correcly", "cyan")
-                return True
             except ImportError as error:
                 cprint(error, "red")
                 return False
+        return True
+
+    def get_preset_msgs(self):
+        return [msg_item for msg_item in self.dict_messages]
 
     # stampa messaggi preimpostati o personalizzati
     # flags:
@@ -58,7 +62,6 @@ class Decoration:
     #   input - richiede input all'utente e lo restituisce
     #   clear - pulisce il terminale (dopo INPUT)
     #   add   - aggiunge testo personalizzato al msg
-
     def pretty(self, msg: str, **flags: any) -> str:
         if flags.get("mymsg", False) is False:
             get_msg = self.dict_messages.get(msg, None)
@@ -70,7 +73,6 @@ class Decoration:
                 else:
                     msg = "<-MESSAGE NOT FOUND - TRY ANOTHER MESSAGE CODE OR CHECK THE GIVEN VALUE->"
                     flags["color"] = "red"
-                
 
         # se non è presente il campo "colore" negli argomenti lo crea e lo imposta a "None"
         color: any = flags.get("color", None)

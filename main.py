@@ -2,11 +2,11 @@ from generator_lib import Generator
 from termcolor import colored
 from colorama import init
 from iostream4 import IOstream, File
-from message_handler_6 import Decoration
+from message_handler_6 import MessageHandler
 init()
 
 io = IOstream()
-dec = Decoration()
+dec = MessageHandler()
 
 version = "b3.0.09.06.2022"
 
