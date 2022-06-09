@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 import os
 
+
 @dataclass
 class Generator:
     main: str = None
@@ -33,7 +34,7 @@ class Generator:
 
     def get_pathspec(self) -> str:
         return self.pathspec
-    
+
     def get_datas(self) -> list:
         return self.datas()
 
@@ -42,7 +43,7 @@ class Generator:
 
     def get_name(self) -> str:
         return self.name
-    
+
     def get_icon_name(self):
         return self.icon
 
@@ -104,13 +105,11 @@ exe = EXE(pyz,
           """
         return self.spec
 
-        
     def exe(self) -> bool:
         try:
-            res = os.system(f'cmd /c pyinstaller {self.name}.spec --onefile')
+            res = os.system(f'cmd /c pyinstaller {self.name}.spec')
             if res == 1:
                 return -1
             return 0
         except:
             return -1
-    
