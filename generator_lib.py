@@ -18,7 +18,7 @@ class Generator:
         self.pathex = opt.get("pathex", None)
         self.pathspec = opt.get("pathspec", None)
         self.datas = opt.get("datas", [tuple(('', '.'))])
-        self.hiddenimports = opt.get("hid_imports", [])
+        self.hiddenimports = opt.get("hidden_imports", [])
         self.name = name
         icon = opt.get("icon", "")
         if icon != "":

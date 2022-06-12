@@ -43,7 +43,7 @@ def spec_main():
     icon = io.invalid_char(icon)
 
     spec = Generator(main, name, data=data_list,
-                     hidden_importsorts=hidden_imports, icon=icon)
+                     hidden_imports=hidden_imports, icon=icon)
 
     file = File(name + ".spec")
 
