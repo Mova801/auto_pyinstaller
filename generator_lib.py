@@ -3,76 +3,80 @@ import os
 
 
 @dataclass
-class Generator:
-    main: str = None
-    pathex: str = None
-    pathspec: str = None
-    datas: list = None
-    hiddenimports: list = None
-    name: str = None
-    icon: str = None
-    spec: str = None
+class Pyinstaller:
 
-    def __init__(self, main: str,  name: str, **opt: dict) -> None:
-        self.main = main + ".py"
-        self.pathex = opt.get("pathex", None)
-        self.pathspec = opt.get("pathspec", None)
-        self.datas = opt.get("datas", [tuple(('', '.'))])
-        self.hiddenimports = opt.get("hidden_imports", [])
-        self.name = name
-        icon = opt.get("icon", "")
+    __spec__: str
+    
+    def __init__(self, main_module: str,  module_name: str, **kwargs: dict) -> None:
+        self._main_module = main_module + ".py"
+        self._pathex = kwargs.get("pathex", None)
+        self._pathspec = kwargs.get("pathspec", None)
+        self._datas = kwargs.get("datas", [tuple(('', '.'))])
+        self._hiddenimports = kwargs.get("hidden_imports", [])
+        self._module_name = module_name
+        icon = kwargs.get("icon", "")
         if icon != "":
-            self.icon = f",\n icon = '{icon}.ico'"
+            self._icon = f",\n icon = '{icon}.ico'"
         else:
-            self.icon = ""
+            self._icon = ""
 
-    def get_main(self) -> str:
-        return self.main
+    @property
+    def main_module(self) -> str:
+        return self._main_module
 
-    def get_pathex(self) -> str:
-        return self.pathex
+    @property
+    def pathex(self) -> str:
+        return self._pathex
 
-    def get_pathspec(self) -> str:
-        return self.pathspec
+    @property
+    def pathspec(self) -> str:
+        return self._pathspec
 
-    def get_datas(self) -> list:
-        return self.datas()
+    @property
+    def datas(self) -> list:
+        return self._datas()
 
-    def get_hiddenimports(self) -> list:
-        return self.hiddenimports
+    @property
+    def hiddenimports(self) -> list:
+        return self._hiddenimports
 
-    def get_name(self) -> str:
-        return self.name
+    @property
+    def module_name(self) -> str:
+        return self._module_name
 
-    def get_icon_name(self):
-        return self.icon
+    @property
+    def icon_module_name(self):
+        return self._icon
 
-    def get_spec(self) -> str:
-        return self.spec
+    @property
+    def spec(self) -> str:
+        return self._spec
 
-    def set_main(self, main: str) -> None:
-        self.main = main
+    @main_module.setter
+    def main_module(self, main_module: str) -> None:
+        self._main_module = main_module
 
-    def set_pathex(self) -> None:
-        self.pathex = os.path.dirname(os.path.realpath(__file__))
-        self.pathex = self.pathex.split('\\')
-        self.pathex = [x + '\\\\' for x in self.pathex]
-        self.pathex = "".join(self.pathex)
+    @pathex.setter
+    def pathex(self) -> None:
+        self._pathex = os.path.dirname(os.path.realpath(__file__))
+        self._pathex = self._pathex.split('\\')
+        self._pathex = [x + '\\\\' for x in self._pathex]
+        self._pathex = "".join(self._pathex)
 
-    def spec(self) -> None:
-        self.set_pathex()
-        self.spec = f"""
+    def build_spec(self) -> None:
+        self._set_pathex()
+        self._spec = f"""
 # -*- mode: python ; coding: utf-8 -*-
 
 
 block_cipher = None
 
 
-a = Analysis(['{self.main}'],
-             pathex=['{self.pathex}'],
+a = Analysis(['{self._main_module}'],
+             pathex=['{self._pathex}'],
              binaries=[],
-             datas={self.datas},
-             hiddenimports={self.hiddenimports},
+             datas={self._datas},
+             hiddenimports={self._hiddenimports},
              hookspath=[],
              hooksconfig={{}},
              runtime_hooks=[],
@@ -90,7 +94,7 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,  
           [],
-          name='{self.name}',
+          module_name='{self._module_name}',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
@@ -101,13 +105,13 @@ exe = EXE(pyz,
           disable_windowed_traceback=False,
           target_arch=None,
           codesign_identity=None,
-          entitlements_file=None{str(self.icon)} )
+          entitlements_file=None{str(self._icon)} )
           """
-        return self.spec
+        return self._spec
 
-    def exe(self) -> bool:
+    def build_exe(self) -> bool:
         try:
-            res = os.system(f'cmd /c pyinstaller {self.name}.spec')
+            res = os.system(f'cmd /c pyinstaller {self._module_name}.spec')
             if res == 1:
                 return -1
             return 0
