@@ -1,0 +1,1 @@
+from auto_pyinstaller.app.lib.autopypack import pyinstaller
