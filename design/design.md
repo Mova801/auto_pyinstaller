@@ -1,5 +1,9 @@
 # Design for AutoPy App @Mova801 (early stage dev - 2022.06.28)
 
+[github]: ../app/src/icons/github.png "GitHub link"
+
+!["Author's GitHub"][github]
+
 - Authors: [Mova](https://github.com/Mova801)
 
 ___
@@ -15,7 +19,7 @@ ___
 
 ___
 
-## 1. About
+## 1. About  
 
 - What is the software application or feature?
   - AutoPy is an application that
