@@ -1,1 +1,1 @@
-from auto_pyinstaller.app.lib.interfacepack import interface
+from lib.interfacepack import window, layout, sub_layouts
