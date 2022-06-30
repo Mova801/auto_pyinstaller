@@ -1,0 +1,28 @@
+gui:
+  colors:
+    blue_cloudy_ocean: null
+  sizes:
+    window: 800x600
+    bar: 5,10
+    button: 500,50
+    img_button: 100,25
+    image: 40,40
+    frame: 150, 100
+  images:
+    github: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\github
+    help: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\help.png
+    bug: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\bug.png
+    shutdown: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\shutdown.png
+    logo: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\logo.png
+  params:
+    percentage_range: 100
+    default_window_read_timeout: 10
+    inputs_num: 4
+app:
+  title: AutoPyinstaller0.5.0
+  version: 0.5.0
+  name: AutoPyinstaller
+paths:
+  specs: ${hydra.runtime.cws}/src/specs/
+links:
+  github: https://github.com/Mova801

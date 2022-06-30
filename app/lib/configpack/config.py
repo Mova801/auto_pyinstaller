@@ -1,12 +1,5 @@
 from dataclasses import dataclass
 
-DictOfStrings = dict[str]
-DictOfTuples = dict[tuple[str, str]]
-
-
-def adapt_str_to_tuple(dic: DictOfStrings) -> DictOfTuples:
-    return {key: val.split(",") for key, val in dic.items()}
-
 
 @dataclass
 class Colors:
@@ -15,12 +8,12 @@ class Colors:
 
 @dataclass()
 class Sizes:
-    window: tuple[str, str]
-    bar: tuple[str, str]
-    button: tuple[str, str]
-    img_button: tuple[str, str]
-    image: tuple[str, str]
-    frame: tuple[str, str]
+    window: str
+    bar: str
+    button: str
+    img_button: str
+    image: str
+    frame: str
 
 
 @dataclass
@@ -41,6 +34,7 @@ class Params:
 
 @dataclass
 class App:
+    title: str
     version: str
     name: str
 
@@ -56,7 +50,7 @@ class Links:
 
 
 @dataclass
-class Interface:
+class Gui:
     colors: Colors
     sizes: Sizes
     images: Images
@@ -68,4 +62,4 @@ class AutoPyConfig:
     app: App
     paths: Paths
     links: Links
-    interface: Interface
+    gui: Gui

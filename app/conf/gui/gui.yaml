@@ -1,7 +1,7 @@
 colors:
   blue_cloudy_ocean: #37517e
 sizes:
-  window: 800,600
+  window: 800x600
   bar: 5,10
   button: 500,50
   img_button: 100,25
