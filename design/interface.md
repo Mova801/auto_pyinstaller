@@ -1,5 +1,5 @@
-[interface]:
-#      SPEC SECTION SHOULD LOOK LIKE THIS
+# SPEC SECTION SHOULD LOOK LIKE THIS
+
     #      _______ _______
     #     | SPEC  \__EXE__|____________________________________
     #     |                _________                           |
@@ -24,8 +24,8 @@
     #     |  build 0.5.0.27.06.2022                            |
     #     |____________________________________________________|
 
-[interface]:                   
-#      EXE SECTION SHOULD LOOK LIKE THIS
+# EXE SECTION SHOULD LOOK LIKE THIS
+
     #      _______ _______              
     #     |__SPEC_/  EXE  \____________________________________
     #     |                _________                           |

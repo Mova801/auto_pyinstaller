@@ -4,6 +4,7 @@ defaults:
 app:
   title: AutoPyinstaller0.5.0
   version: 0.5.0
+  build: 2022.01.07
   name: AutoPyinstaller
 paths:
   specs: ${hydra.runtime.cws}/src/specs/

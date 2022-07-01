@@ -3,13 +3,13 @@ colors:
   azure_sky: #2986CC
 sizes:
   window: 800x600
-  bar: 5,10
-  button: 500,50
-  img_button: 100,25
-  image: 40,40
-  frame: 150, 100
+  bar: 5x10
+  button: 500x50
+  img_button: 5
+  image: 40x40
+  frame: 150x100
 images:
-  github: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\github
+  github: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\github.png
   help: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\help.png
   bug: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\bug.png
   shutdown: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\shutdown.png

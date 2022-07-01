@@ -41,6 +41,7 @@ class Fonts:
 class App:
     title: str
     version: str
+    build: str
     name: str
 
 

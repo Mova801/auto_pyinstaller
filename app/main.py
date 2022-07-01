@@ -1,4 +1,3 @@
-from click import password_option
 import hydra
 from hydra.core.config_store import ConfigStore
 from hydra import MissingConfigException
@@ -21,7 +20,14 @@ cf.store(name="autopy_config", node=AutoPyConfig)
 @hydra.main(config_path=CONFIG_PATH, config_name=CONFIG_FILE)
 def main(conf: AutoPyConfig) -> None:
     # create the App obj
-    app = AutoPyApp(conf.gui.sizes.window, conf.app.title, conf.gui)
+    app = AutoPyApp(
+        conf.gui.sizes.window,
+        conf.app.title,
+        conf.app.version,
+        conf.app.build,
+        conf.gui,
+    )
+    app.create_gui()
     # handler the application loop
     app.mainloop()
 
@@ -30,5 +36,7 @@ if __name__ == "__main__":
     try:
         main()
     except MissingConfigException as e:
-        poperror("AutoPyApp Error Popup", e.args[0]) # "An error has occurred during the configuration file loading.")
+        poperror(
+            "AutoPyApp Error Popup", e.args[0]
+        )  # "An error has occurred during the configuration file loading.")
         print(e.strerror)
