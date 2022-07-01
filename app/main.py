@@ -18,11 +18,10 @@ cf.store(name="autopy_config", node=AutoPyConfig)
 # load the config file
 
 
-@hydra.main(config_path="f", config_name=CONFIG_FILE)
+@hydra.main(config_path=CONFIG_PATH, config_name=CONFIG_FILE)
 def main(conf: AutoPyConfig) -> None:
     # create the App obj
-    app = AutoPyApp(conf.gui.sizes.window, conf.app.title)
-    app.create_gui()
+    app = AutoPyApp(conf.gui.sizes.window, conf.app.title, conf.gui)
     # handler the application loop
     app.mainloop()
 

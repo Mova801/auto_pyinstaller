@@ -1,5 +1,6 @@
 colors:
   blue_cloudy_ocean: #37517e
+  azure_sky: #2986CC
 sizes:
   window: 800x600
   bar: 5,10
@@ -17,3 +18,5 @@ params:
   percentage_range: 100
   default_window_read_timeout: 10
   inputs_num: 4
+fonts:
+  app: Roboto Medium

@@ -33,6 +33,11 @@ class Params:
 
 
 @dataclass
+class Fonts:
+    app: str
+
+
+@dataclass
 class App:
     title: str
     version: str
@@ -55,6 +60,7 @@ class Gui:
     sizes: Sizes
     images: Images
     params: Params
+    fonts: Fonts
 
 
 @dataclass

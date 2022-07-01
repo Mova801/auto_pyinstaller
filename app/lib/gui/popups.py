@@ -1,10 +1,12 @@
 import tkinter as tk
+import customtkinter as ck
 from typing import Optional
 from enum import Enum
 
 
 class Images(Enum):
     LOGO = r"C:\Users\marco\OneDrive\Documenti\GitHub\auto_pyinstaller\app\src\icons\aupy.ico"
+
 
 class Colors(Enum):
     DARK_BLUE = "#181b2c"
@@ -27,55 +29,63 @@ class Fonts(Enum):
 
 def poperror(title, error: str) -> None:
     popup(
-        title,
-        "Something has gone wrong.\n Please try again :(",
-        error,
-        size="920x300"
+        title, "Something has gone wrong.\n Please try again :(", error, size="420x300"
     )
 
 
-def popup(title: str, msg_title: str, msg: str, size: Optional[str] = "400x300") -> None:
+def popup(
+    title: str, msg_title: str, msg: str, size: Optional[str] = "400x300"
+) -> None:
     """Create a popup window"""
-    pop = tk.Tk()
+    win_width, _ = size.split("x")
+    ck.set_appearance_mode("dark")
+    ck.set_default_color_theme("blue")
+    pop = ck.CTk()
     pop.title(title)
     pop.geometry(size)
     pop.iconbitmap(Images.LOGO.value)
     pop.resizable(True, False)
-    pop.config(bg=Colors.DARK_BLUE.value)
 
-    pop_label1 = tk.Label(
-        pop,
+    # ============ frame ================
+    frame = ck.CTkFrame(master=pop, width=int(win_width))
+    frame.grid(row=0, column=0, sticky="ns")
+
+    # ============ title ================
+
+    title_label = ck.CTkLabel(
+        master=frame,
         text=msg_title,
-        bg=Colors.DARK_BLUE.value,
-        fg=Colors.WHITE.value,
-        font=Fonts.ROBOTO.value + " 16",
+        text_font=(Fonts.ROBOTO.value, 20),
+        width=int(win_width),
     )
-    pop_label1.grid(row=1, column=1, padx=30, pady=35)
+    title_label.grid(row=0, column=0, sticky="ns", pady=30)
 
-    pop_label2 = tk.Label(
-        pop,
+    # ============= msg =================
+
+    msg_label = ck.CTkLabel(
+        master=frame,
         text=msg,
-        bg=Colors.DARK_BLUE.value,
-        fg=Colors.YELLOW.value,
-        font=Fonts.ROBOTO.value + " 12",
+        background=None,
+        width=int(win_width)
     )
-    pop_label2.grid(row=2, column=1, padx=30, pady=5)
+    msg_label.grid(row=1, column=0, sticky=tk.NSEW)
 
-    pop_btn = tk.Button(
-        pop,
+    # =========== button ================
+
+    button = ck.CTkButton(
+        master=frame,
         text="EXIT",
-        bg=Colors.GLOW_AZURE.value,
-        fg=Colors.WHITE.value,
-        font=Fonts.ROBOTO.value,
+        text_font=(Fonts.ROBOTO.value, 20),
+        text_color=Colors.WHITE.value,
         command=pop.destroy,
-        activebackground=Colors.WHITE.value,
-        activeforeground=Colors.GLOW_AZURE.value,
-        border=False
     )
-    pop_btn.grid(row=3, column=1, pady=30)
+    button.grid(row=2, column=0, pady=30)
 
     pop.mainloop()
 
 
 if __name__ == "__main__":
-    poperror()
+    poperror(
+        "POPUP ERROR",
+        "ERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERRORERROR",
+    )

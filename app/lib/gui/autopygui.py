@@ -4,6 +4,14 @@ from typing import Optional
 import customtkinter
 import webbrowser as wb
 
+import sys
+
+from pygments import highlight
+
+sys.path.append(r"C:\Users\marco\OneDrive\Documenti\GitHub\auto_pyinstaller\app")
+
+from lib.configpack.config import Gui
+
 
 def open_link(link: str) -> None:
     """apre il link passato"""
@@ -14,6 +22,7 @@ def open_link(link: str) -> None:
 class AutoPyApp(customtkinter.CTk):
     """Class that represents the AutoPyGUI."""
 
+    _title: str
     _app_win_size: str
     _app_title: str
 
@@ -21,6 +30,7 @@ class AutoPyApp(customtkinter.CTk):
         self,
         win_size: str,
         title: str,
+        gui_conf: Gui,
         apprearance_mode: Optional[str] = None,
         color_theme: Optional[str] = None,
     ):
@@ -37,13 +47,13 @@ class AutoPyApp(customtkinter.CTk):
         super().__init__()
         self._app_win_size = win_size
         self._app_title = title
+        self._gui_conf = gui_conf
         self.title(title)
         self.geometry(win_size)
         self.protocol(
             "WM_DELETE_WINDOW", self.on_closing
         )  # call .on_closing() when app gets closed
 
-    def create_gui(self):
         # ============ create two frames ============
 
         # configure grid layout (2x1)
@@ -74,23 +84,25 @@ class AutoPyApp(customtkinter.CTk):
 
         self.label_1 = customtkinter.CTkLabel(
             master=self.frame_left,
-            text="CustomTkinter",
-            text_font=("Roboto Medium", -16),
+            text=title,
+            text_font=(self._gui_conf.fonts.app, -16),
         )  # font name and size in px
         self.label_1.grid(row=1, column=0, pady=10, padx=10)
 
         self.button_1 = customtkinter.CTkButton(
-            master=self.frame_left, text="CTkButton", command=self.button_event
+            master=self.frame_left,
+            text="Spec",
+            command=self.spec_button_event
         )
         self.button_1.grid(row=2, column=0, pady=10, padx=20)
 
         self.button_2 = customtkinter.CTkButton(
-            master=self.frame_left, text="CTkButton", command=self.button_event
+            master=self.frame_left, text="Exe", command=self.exe_button_event
         )
         self.button_2.grid(row=3, column=0, pady=10, padx=20)
 
         self.button_3 = customtkinter.CTkButton(
-            master=self.frame_left, text="CTkButton", command=self.button_event
+            master=self.frame_left, text="Settings", command=self.config_button_event
         )
         self.button_3.grid(row=4, column=0, pady=10, padx=20)
 
@@ -222,7 +234,6 @@ class AutoPyApp(customtkinter.CTk):
 
         # set default values
         self.optionmenu_1.set("Dark")
-        self.button_3.configure(state="disabled", text="Disabled CTkButton")
         self.combobox_1.set("CTkCombobox")
         self.radio_button_1.select()
         self.slider_1.set(0.2)
@@ -232,6 +243,15 @@ class AutoPyApp(customtkinter.CTk):
         self.radio_button_3.configure(state=tkinter.DISABLED)
         self.check_box_1.configure(state=tkinter.DISABLED, text="CheckBox disabled")
         self.check_box_2.select()
+
+    def spec_button_event(self):
+        ...
+
+    def exe_button_event(self):
+        ...
+
+    def config_button_event(self):
+        ...
 
     def button_event(self):
         print("Button pressed")
