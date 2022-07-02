@@ -1,6 +1,4 @@
 from dataclasses import dataclass
-import tkinter
-import tkinter.messagebox
 from typing import Protocol
 import customtkinter
 
@@ -10,11 +8,18 @@ CTkElement = customtkinter.CTkBaseClass
 
 @dataclass
 class GUI(Protocol):
-    
-    def add_sub_layout(self, sub_layout: CTkElement):
-        ...
-    
-    def remove_sub_layout(self, sub_layout: CTkElement):
-        ...
 
-    
+    def change_appearance_mode(apprearance_mode: str) -> None:
+        raise NotImplementedError()
+
+    def change_appearance_mode(color_theme: str) -> None:
+        raise NotImplementedError()
+
+    def build(self, *args, **kwargs):
+        raise NotImplementedError()
+
+    def loop(self):
+        raise NotImplementedError()
+
+    def close(self):
+        raise NotImplementedError()

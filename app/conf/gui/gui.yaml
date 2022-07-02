@@ -3,20 +3,28 @@ colors:
   azure_sky: #2986CC
 sizes:
   window: 800x600
-  bar: 5x10
+  bar: 50
   button: 500x50
-  img_button: 5
-  image: 40x40
+  img_button: 30
+  image: 40
   frame: 150x100
+  font: 10
 images:
   github: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\github.png
-  help: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\help.png
+  help: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\info.png
   bug: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\bug.png
   shutdown: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\shutdown.png
-  logo: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\logo.png
+  logo: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\aupy.ico
 params:
   percentage_range: 100
-  default_window_read_timeout: 10
+  update_time_ticks: 1000
   inputs_num: 4
+
 fonts:
-  app: Roboto Medium
+  roboto: Roboto Medium
+window:
+  resizable_width: True
+  resizable_height: True
+  appearance_mode: "dark"
+  color_theme: "blue"
+  

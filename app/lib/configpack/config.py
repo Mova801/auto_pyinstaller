@@ -9,11 +9,12 @@ class Colors:
 @dataclass()
 class Sizes:
     window: str
-    bar: str
+    bar: int
     button: str
-    img_button: str
-    image: str
+    img_button: int
+    image: int
     frame: str
+    font: int
 
 
 @dataclass
@@ -28,13 +29,20 @@ class Images:
 @dataclass
 class Params:
     percentage_range: int
-    default_window_read_timeout: int
+    update_time_ticks: int
     inputs_num: int
 
 
 @dataclass
 class Fonts:
-    app: str
+    roboto: str
+
+
+class Window:
+    resizable_width: bool
+    resizable_height: bool
+    appearance_mode: str
+    color_theme: str
 
 
 @dataclass
@@ -62,6 +70,7 @@ class Gui:
     images: Images
     params: Params
     fonts: Fonts
+    window: Window
 
 
 @dataclass
@@ -70,3 +79,14 @@ class AutoPyConfig:
     paths: Paths
     links: Links
     gui: Gui
+
+
+def str_to_tuple(string: str) -> tuple[int, int]:
+    return tuple(map(int, string.split('x')))
+
+
+def format_size(sizes: Sizes) -> Sizes:
+    format_size: list = []
+    for size in sizes.values():
+        format_size.append(size)
+    return Sizes(*format_size)
