@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from platform import version
 
 
 @dataclass
@@ -12,9 +13,12 @@ class Sizes:
     bar: int
     button: str
     img_button: int
+    info_button: int
     image: int
     frame: str
     font: int
+    title_small: int
+    title: int
 
 
 @dataclass
@@ -46,11 +50,22 @@ class Window:
 
 
 @dataclass
+class LeftFrame:
+    button_pady: int
+    show_resource_usage: bool
+
+
+@dataclass
+class RightFrame:
+    entry_pad: int
+    entry_width: int
+
+
+@dataclass
 class App:
-    title: str
-    version: str
     build: str
     name: str
+    version: str
 
 
 @dataclass
@@ -71,6 +86,8 @@ class Gui:
     params: Params
     fonts: Fonts
     window: Window
+    right_frame: RightFrame
+    left_frame: LeftFrame
 
 
 @dataclass
@@ -82,7 +99,7 @@ class AutoPyConfig:
 
 
 def str_to_tuple(string: str) -> tuple[int, int]:
-    return tuple(map(int, string.split('x')))
+    return tuple(map(int, string.split("x")))
 
 
 def format_size(sizes: Sizes) -> Sizes:

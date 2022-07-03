@@ -2,10 +2,10 @@ import hydra
 from hydra.core.config_store import ConfigStore
 from hydra import MissingConfigException
 
-from lib.gui.autopygui import AutoPyApp
-from lib.gui.popups import poperror
+from lib.guipack.autopygui import AutoPyApp
+from lib.guipack.popups import poperror
 from lib.configpack.config import AutoPyConfig
-from lib.gui.gui_ctk import CtkGui
+from lib.guipack.ctk_gui1.gui_ctk import CtkGui
 
 
 CONFIG_PATH = "conf"
@@ -20,7 +20,8 @@ cf.store(name="autopy_config", node=AutoPyConfig)
 
 @hydra.main(config_path=CONFIG_PATH, config_name=CONFIG_FILE)
 def main(conf: AutoPyConfig) -> None:
-    gui = CtkGui(conf.gui.sizes.window, conf.app.title, conf.gui, conf.app).build()
+    title = conf.app.name + conf.app.version
+    gui = CtkGui(conf.gui.sizes.window, title, conf.gui, conf.app).build()
     # create the App obj
     app = AutoPyApp(
         gui,

@@ -2,11 +2,11 @@ defaults:
   - gui: gui
   - _self_
 app:
-  title: AutoPyinstaller0.5.0
-  version: 0.5.0
-  build: 2022.01.07
+  build: 2022.03.07
   name: AutoPyinstaller
+  version: 0.5.1
 paths:
   specs: ${hydra.runtime.cws}/src/specs/
 links:
   github: https://github.com/Mova801
+show_resource_usage: true

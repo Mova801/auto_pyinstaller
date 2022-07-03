@@ -5,7 +5,7 @@ import webbrowser as wb
 
 
 sys.path.append(r"C:\Users\marco\Documents\GitHub\auto_pyinstaller\app")
-from lib.gui.gui_ctk import CtkGui
+from lib.guipack.ctk_gui1.gui_ctk import CtkGui
 
 
 def open_link(link: str) -> None:
