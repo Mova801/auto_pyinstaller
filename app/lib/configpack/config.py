@@ -11,7 +11,7 @@ class Colors:
 class Sizes:
     window: str
     bar: int
-    button: str
+    buttonw: str
     img_button: int
     info_button: int
     image: int
@@ -27,6 +27,11 @@ class Images:
     help: str
     bug: str
     shutdown: str
+    settings: str
+    spec: str
+    exe: str
+    image: str
+    in_app_logo: str
     logo: str
 
 

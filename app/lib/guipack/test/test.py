@@ -1,31 +1,11 @@
-from tkinter import filedialog
-from typing import Optional
-import customtkinter as ct
+import PIL.Image 
+
+img = r"C:\Users\marco\Desktop\script\hex_icon.ico"
 
 
-def open_file_dialog(
-    title: str = "Select A File",
-    filetypes: list[str] = (("python files", "*.py"), ("All files", "*.*")),
-    initialdir: Optional[str] = "/",
-) -> str:
-    global root
-    root.path = filedialog.askdirectory(
-        initialdir=initialdir, title=title
-    )
-    print(root.path)
+def show_image(image_path: str) -> None:
+    """Shows an image file on screen."""
+    if image_path:
+        PIL.Image.open(image_path).show()
 
-
-root = ct.CTk()
-root.path = None
-button_help_main = ct.CTkButton(
-    master=root,
-    command=open_file_dialog,
-    text="Bottone",
-    corner_radius=20,
-    width=30,
-    height=30,
-)
-button_help_main.pack()
-root.mainloop()
-label = ct.CTkLabel(text=root.path)
-label.pack()
+show_image(img)

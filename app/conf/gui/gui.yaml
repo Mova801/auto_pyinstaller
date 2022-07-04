@@ -4,9 +4,9 @@ colors:
 sizes:
   window: 900x600
   bar: 50
-  button: 500x50
-  img_button: 15
-  info_button: 10
+  buttonw: 80
+  img_button: 30
+  info_button: 25
   image: 40
   frame: 150x100
   font: 10
@@ -17,7 +17,12 @@ images:
   help: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\info.png
   bug: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\bug.png
   shutdown: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\shutdown.png
-  logo: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\aupy.ico
+  settings: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\settings.png
+  spec: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\file.png
+  exe: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\exe.png
+  image: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\image.png
+  in_app_logo: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\logo3.png
+  logo: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\rock.ico
 params:
   percentage_range: 100
   update_time_ticks: 1000

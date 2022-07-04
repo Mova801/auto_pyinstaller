@@ -5,7 +5,7 @@ import webbrowser as wb
 
 
 sys.path.append(r"C:\Users\marco\Documents\GitHub\auto_pyinstaller\app")
-from lib.guipack.ctk_gui1.gui_ctk import CtkGui
+from lib.guipack.gui import GUI
 
 
 def open_link(link: str) -> None:
@@ -23,11 +23,11 @@ class AutoPyApp:
 
     _app_win_size: str
     _app_title: str
-    _gui: CtkGui
+    _gui: GUI
 
     def __init__(
         self,
-        gui: CtkGui,
+        gui: GUI,
         version: Optional[str] = None,
         build: Optional[str] = None,
     ):
@@ -36,7 +36,7 @@ class AutoPyApp:
         self._build = build
 
     @property
-    def gui(self, gui: CtkGui):
+    def gui(self, gui: GUI):
         """Set a gui for the App."""
         if not gui:
             raise InvalidGuiError(gui)

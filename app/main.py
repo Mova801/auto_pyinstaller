@@ -20,8 +20,7 @@ cf.store(name="autopy_config", node=AutoPyConfig)
 
 @hydra.main(config_path=CONFIG_PATH, config_name=CONFIG_FILE)
 def main(conf: AutoPyConfig) -> None:
-    title = conf.app.name + conf.app.version
-    gui = CtkGui(conf.gui.sizes.window, title, conf.gui, conf.app).build()
+    gui = CtkGui(conf.gui.sizes.window, conf.app.name, conf.gui, conf.app).build()
     # create the App obj
     app = AutoPyApp(
         gui,

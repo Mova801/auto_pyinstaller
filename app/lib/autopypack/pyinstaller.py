@@ -1,10 +1,6 @@
 from asyncio import subprocess
 from .file import SpecFile
-
-
-class ExeBuildFromSpecFileError(Exception):
-    """Exception raised when a pyinstaller exe build fails."""
-
+from lib.errors.errors import ExeBuildFromSpecFileError
 
 class PyInstaller:
     """Allow to generate a .exe file from a .py."""

@@ -1,1 +1,1 @@
-from lib import autopypack, configpack, guipack, resourceusage
+from lib import autopypack, configpack, guipack, resourceusage, errors

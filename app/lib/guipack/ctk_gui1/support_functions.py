@@ -18,6 +18,11 @@ def open_image(image_name: str, size: int) -> PIL.ImageTk.PhotoImage:
     image = PIL.Image.open(image_name).resize((size, size), PIL.Image.ANTIALIAS)
     return PIL.ImageTk.PhotoImage(image)
 
+def show_image(image_path: str) -> None:
+    """Shows an image file on screen."""
+    if image_path:
+        PIL.Image.open(image_path).show()
+
 
 def open_file_dialog(
     title: Optional[str] = "Select A File",
