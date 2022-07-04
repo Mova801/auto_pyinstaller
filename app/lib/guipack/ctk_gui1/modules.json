@@ -1,0 +1,15 @@
+{
+  "plugins": [],
+  "modules": [
+    {
+      "__name__": "left_frame",
+      "__builder__": "",
+      "__dirname__": ""
+    },
+    {
+      "__name__": "right_frame",
+      "__builder__": "",
+      "__dirname__": ""
+    }
+  ]
+}

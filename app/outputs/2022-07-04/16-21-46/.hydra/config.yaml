@@ -1,0 +1,52 @@
+gui:
+  github: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\github.png
+  help: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\info.png
+  bug: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\bug.png
+  shutdown: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\shutdown.png
+  settings: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\settings.png
+  spec: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\file.png
+  exe: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\exe.png
+  image: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\image.png
+  save: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\save.png
+  in_app_logo: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\logo3.png
+  logo: C:\Users\marco\Documents\GitHub\auto_pyinstaller\app\src\icons\rock.ico
+  colors:
+    blue_cloudy_ocean: null
+    azure_sky: null
+  sizes:
+    window: 900x600
+    bar: 50
+    buttonw: 80
+    img_button: 30
+    info_button: 25
+    image: 40
+    frame: 150x100
+    font: 10
+    title_small: 12
+    title: 16
+  params:
+    percentage_range: 100
+    update_time_ticks: 1000
+    inputs_num: 4
+  fonts:
+    roboto: Roboto Medium
+  window:
+    resizable_width: true
+    resizable_height: true
+    appearance_mode: dark
+    color_theme: blue
+  right_frame:
+    entry_pad: 10
+    entry_width: 280
+  left_frame:
+    button_pady: 5
+    show_resource_usage: true
+app:
+  build: 2022.03.07
+  name: AutoPyinstaller
+  version: 0.5.1
+paths:
+  specs: ${hydra.runtime.cws}/src/specs/
+links:
+  github: https://github.com/Mova801
+show_resource_usage: true

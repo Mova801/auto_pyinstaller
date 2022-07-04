@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from platform import version
 
 
 @dataclass
@@ -31,6 +30,7 @@ class Images:
     spec: str
     exe: str
     image: str
+    save: str
     in_app_logo: str
     logo: str
 
@@ -64,7 +64,8 @@ class LeftFrame:
 class RightFrame:
     entry_pad: int
     entry_width: int
-
+    btn_i_padx: int
+    btn_i_pady: int
 
 @dataclass
 class App:

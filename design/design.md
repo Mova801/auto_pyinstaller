@@ -2,8 +2,6 @@
 
 [github]: ../app/src/icons/github.png "GitHub link"
 
-!["Author's GitHub"][github]
-
 - Authors: [Mova](https://github.com/Mova801)
 
 ___
