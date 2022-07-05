@@ -1,5 +1,5 @@
 from lib.guipack.ctk_gui1.modules.right_frame import file_dialog
-from lib.guipack.ctk_gui1.modules.support_functions import open_image, show_image
+from lib.guipack.ctk_gui1.modules.support_functions import open_image, show_image, save_spec_file
 from lib.guipack.ctk_gui1.modules.input_types import InputTypes
 from lib.guipack.gui import GUI
 import customtkinter as ct
@@ -28,6 +28,7 @@ def _build_right_frame_main_row(gui: GUI):
     gui.main_entry.grid(
         row=main_row, column=0, pady=entry_pad, padx=entry_pad, sticky="w"
     )
+    gui._input_types_registry[InputTypes.MAIN]["entry"] = gui.main_entry
     # ============ frame_right: main browse button ============
     gui.button_browse_main = ct.CTkButton(
         master=gui.frame_info,
@@ -74,6 +75,7 @@ def _build_right_frame_data_row(gui: GUI):
     gui.data_entry.grid(
         row=data_row, column=0, pady=entry_pad, padx=entry_pad, sticky="w"
     )
+    gui._input_types_registry[InputTypes.DATA]["entry"] = gui.data_entry
     # ============ frame_right: data browse button ============
     types = (
         ("json files", "*.json"),
@@ -135,6 +137,7 @@ def _build_right_frame_imports_row(gui: GUI):
     )
     gui.button_browse_main.grid(row=imports_row, column=1, sticky="e")
 
+    gui._input_types_registry[InputTypes.IMPORTS]["entry"] = gui.imports_entry
     # ============ frame_right: imports info button ============
 
     HELP_IMG = open_image(gui.gui_info.images.help, gui.gui_info.sizes.info_button)
@@ -181,6 +184,7 @@ def _build_right_frame_icon_row(gui: GUI):
     )
     gui.button_browse_main.grid(row=icon_row, column=1, sticky="e")
 
+    gui._input_types_registry[InputTypes.ICON]["entry"] = gui.icon_entry
     # ============ frame_right: imports info button ============
 
     HELP_IMG = open_image(gui.gui_info.images.help, gui.gui_info.sizes.info_button)
@@ -247,14 +251,18 @@ def _build_right_frame_spec(gui: GUI):
 
     img_resize = int(gui.gui_info.sizes.img_button * 0.8)
 
+    main = gui._input_types_registry[InputTypes.MAIN]["data"]
+    data = gui._input_types_registry[InputTypes.DATA]["data"]
+    imports = gui._input_types_registry[InputTypes.IMPORTS]["data"]
+    icon = gui._input_types_registry[InputTypes.ICON]["data"]
+
     SAVE = open_image(gui.gui_info.images.save, img_resize)
     btn_size = gui.gui_info.sizes.img_button
-    btn_w = gui.gui_info.sizes.buttonw
     gui.button_save = ct.CTkButton(
         master=gui.frame_info,
         image=SAVE,
-        command=gui.button_event,
-        compound="right",
+        command=lambda: save_spec_file(main, data, imports, icon),
+        compound=gui.gui_info.params.img_pos,
         text="Save",
         text_font=(gui.gui_info.sizes.font, gui.gui_info.sizes.title_small),
         height=btn_size + 10,

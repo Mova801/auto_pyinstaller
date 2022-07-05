@@ -16,22 +16,24 @@ def _build_left_frame_buttons(gui: GUI) -> None:
     SPEC_ICON = open_image(gui.gui_info.images.spec, img_size)
     gui.button_1 = ct.CTkButton(
         master=gui.frame_left,
-        text="Spec",
+        text="  Spec",
         image=SPEC_ICON,
-        compound="right",
+        compound=gui.gui_info.params.img_pos,
         text_font=(gui.gui_info.fonts.roboto, gui.gui_info.sizes.font),
         command=gui.spec_button_event,
+        height=gui.gui_info.sizes.buttonh
     )
     gui.button_1.grid(row=2, column=0, pady=button_pady, padx=20)
 
     EXE_ICON = open_image(gui.gui_info.images.exe, img_size)
     gui.button_2 = ct.CTkButton(
         master=gui.frame_left,
-        text="Exe",
+        text="  Exe",
         image=EXE_ICON,
-        compound="right",
+        compound=gui.gui_info.params.img_pos,
         text_font=(gui.gui_info.fonts.roboto, gui.gui_info.sizes.font),
         command=gui.exe_button_event,
+        height=gui.gui_info.sizes.buttonh
     )
     gui.button_2.grid(row=3, column=0, pady=button_pady, padx=20)
 
@@ -40,9 +42,10 @@ def _build_left_frame_buttons(gui: GUI) -> None:
         master=gui.frame_left,
         text="Settings",
         image=SETTINGS_ICON,
-        compound="right",
+        compound=gui.gui_info.params.img_pos,
         text_font=(gui.gui_info.fonts.roboto, gui.gui_info.sizes.font),
         command=gui.config_button_event,
+        height=gui.gui_info.sizes.buttonh
     )
     gui.button_3.grid(row=4, column=0, pady=button_pady, padx=20)
 

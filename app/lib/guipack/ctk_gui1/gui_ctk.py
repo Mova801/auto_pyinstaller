@@ -1,3 +1,7 @@
+from lib.guipack.ctk_gui1.modules.input_types import InputTypes
+from lib.guipack.ctk_gui1.modules.left_frame import left_frame
+from lib.guipack.ctk_gui1.modules.right_frame import right_frame
+from lib.configpack.config import Gui, App
 from dataclasses import dataclass
 from typing import Optional
 import sys
@@ -5,10 +9,6 @@ import sys
 import customtkinter as ct
 
 sys.path.append(r"C:\Users\marco\Documents\GitHub\auto_pyinstaller\app")
-from lib.configpack.config import Gui, App
-from lib.guipack.ctk_gui1.modules.right_frame import right_frame
-from lib.guipack.ctk_gui1.modules.left_frame import left_frame
-
 
 
 MIN_UPDATE_TIME_TICKS: int = 1000
@@ -17,6 +17,13 @@ MIN_UPDATE_TIME_TICKS: int = 1000
 @dataclass
 class CtkGui:
     """Represents a GUI. This class can be used to add GUI components."""
+
+    _input_types_registry = {
+        InputTypes.MAIN: {"entry": None, "data": None},
+        InputTypes.DATA: {"entry": None, "data": None},
+        InputTypes.IMPORTS: {"entry": None, "data": None},
+        InputTypes.ICON: {"entry": None, "data": None},
+    }
 
     def __init__(
         self,
@@ -52,8 +59,6 @@ class CtkGui:
         self.update_time_ticks = max(
             MIN_UPDATE_TIME_TICKS, gui_info.params.update_time_ticks
         )  # min 1000 ticks / 1s
-
-        self.main_path = self.data_path = self.imports_path = self.icon_path = None
 
     def change_appearance_mode(self, apprearance_mode: str) -> None:
         # Modes: "System" (standard), "Dark", "Light"

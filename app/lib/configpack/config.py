@@ -11,6 +11,7 @@ class Sizes:
     window: str
     bar: int
     buttonw: str
+    buttonh: str
     img_button: int
     info_button: int
     image: int
@@ -37,6 +38,7 @@ class Images:
 
 @dataclass
 class Params:
+    img_pos: str
     percentage_range: int
     update_time_ticks: int
     inputs_num: int

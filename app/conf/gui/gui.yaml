@@ -8,6 +8,7 @@ sizes:
   window: 900x600
   bar: 50
   buttonw: 80
+  buttonh: 35
   img_button: 20
   info_button: 10
   image: 40
@@ -16,6 +17,7 @@ sizes:
   title_small: 12
   title: 18
 params:
+  img_pos: "left"
   percentage_range: 100
   update_time_ticks: 1000
   inputs_num: 4

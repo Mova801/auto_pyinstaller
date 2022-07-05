@@ -1,8 +1,5 @@
 import PIL.Image, PIL.ImageTk
-import tkinter
 import psutil
-from tkinter import filedialog
-from typing import Optional
 
 
 def get_cpu_usage():
@@ -24,21 +21,8 @@ def show_image(image_path: str) -> None:
         PIL.Image.open(image_path).show()
 
 
-def open_file_dialog(
-    title: Optional[str] = "Select A File",
-    filetypes: list[str] = (),
-    initialdir: Optional[str] = "/",
-) -> str:
-    return filedialog.askopenfilename(
-        initialdir=initialdir, title=title, filetypes=filetypes
-    )
-
-
-def open_files_dialog(
-    title: Optional[str] = "Select A Directory",
-    filetypes: list[str] = (),
-    initialdir: Optional[str] = "/",
-) -> str:
-    return filedialog.askopenfilenames(
-        initialdir=initialdir, title=title, filetypes=filetypes
-    )
+def save_spec_file(main: str, data: str, imports: str, icon: str) -> None:
+    print(main, data, imports, icon)
+    if not main or not data or not imports:
+        return None
+    print("SAVE")
