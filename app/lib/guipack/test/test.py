@@ -1,11 +1,34 @@
-import PIL.Image 
 
-img = r"C:\Users\marco\Desktop\script\hex_icon.ico"
+import tkinter as tk
+
+# Top level window
+frame = tk.Tk()
+frame.title("TextBox Input")
+frame.geometry('400x200')
+# Function for getting Input
+# from textbox and printing it
+# at label widget
 
 
-def show_image(image_path: str) -> None:
-    """Shows an image file on screen."""
-    if image_path:
-        PIL.Image.open(image_path).show()
+def printInput():
+    inp = inputtxt.get(1.0, "end-1c")
+    lbl.config(text="Provided Input: "+inp)
 
-show_image(img)
+
+# TextBox Creation
+inputtxt = tk.Text(frame,
+                   height=5,
+                   width=20)
+
+inputtxt.pack()
+
+# Button Creation
+printButton = tk.Button(frame,
+                        text="Print",
+                        command=printInput)
+printButton.pack()
+
+# Label Creation
+lbl = tk.Label(frame, text="")
+lbl.pack()
+frame.mainloop()

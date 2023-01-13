@@ -205,7 +205,7 @@ class App(customtkinter.CTk):
 
         # set default values
         self.optionmenu_1.set("Dark")
-        self.button_3.configure(state="disabled", text="Disabled CTkButton")
+        self.button_3.configure(state=tkinter.DISABLED, text="Disabled CTkButton")
         self.combobox_1.set("CTkCombobox")
         self.radio_button_1.select()
         self.slider_1.set(0.2)
