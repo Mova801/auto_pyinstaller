@@ -11,7 +11,7 @@ import customtkinter as ct
 sys.path.append(r"C:\Users\marco\Documents\GitHub\auto_pyinstaller\app")
 
 
-MIN_UPDATE_TIME_TICKS: int = 1000
+CLOCK: int = 1000
 
 
 @dataclass
@@ -56,8 +56,8 @@ class CtkGui:
         self.change_appearance_mode(appearance_mode)
         self.change_color_theme(color_theme)
         self.app = app_info
-        self.update_time_ticks = max(
-            MIN_UPDATE_TIME_TICKS, gui_info.params.update_time_ticks
+        self.clock = max(
+            CLOCK, gui_info.params.clock
         )  # min 1000 ticks / 1s
 
     def change_appearance_mode(self, apprearance_mode: str) -> None:
