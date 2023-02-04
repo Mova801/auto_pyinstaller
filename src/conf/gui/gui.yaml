@@ -1,0 +1,30 @@
+sizes:
+  bar: 50
+  buttonw: 80
+  buttonh: 35
+  img_button: 20
+  info_button: 10
+  image: 40
+  frame: 150x100
+  font: 10
+  title_small: 12
+  title: 18
+params:
+  img_pos: "left"
+  percentage_range: 100
+  update_time_ticks: 1000
+  inputs_num: 4
+fonts:
+
+window:
+  resizable_width: True
+  resizable_height: True
+
+right_frame:
+  entry_pad: 10
+  entry_width: 400
+  btn_i_padx: 1
+  btn_i_pady: 5
+left_frame:
+  button_pady: 5
+  show_resource_usage: True
